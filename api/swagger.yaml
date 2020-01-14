@@ -1,0 +1,70 @@
+swagger: "2.0"
+info:
+  description: "Basic locker server implementation."
+  version: "1.0.0"
+  title: "Locker"
+basePath: "/"
+paths:
+  '/locker/lock':
+    x-swagger-router-controller: lockerController
+    post:
+      tags:
+      - "Lock"
+      description: "Request to aquire lock by resouce ID"
+      operationId: "lock"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "resourceId"
+        type: "string"
+        description: "Resource ID"
+        required: true
+      - in: "query"
+        name: "ttl"
+        type: "integer"
+        description: "Optional time out in msec"
+        required: false
+      responses:
+        200:
+          description: "OK"
+          schema: 
+            type: "string"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "string"
+        500:
+          description: "Failed to Aquire Lock"
+          schema:
+            type: "string"
+  '/locker/unlock':
+    x-swagger-router-controller: lockerController
+    post:
+      tags:
+      - "Unlock"
+      description: "Request to release a lock by resouce ID and token ID"
+      operationId: "unlock"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "resourceId"
+        type: "string"
+        description: "Resource ID"
+        required: true
+      - in: "query"
+        name: "tokenId"
+        type: "string"
+        description: "Token ID"
+        required: true
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "string"
+        500:
+           description: "Failed to Release Lock"
+    

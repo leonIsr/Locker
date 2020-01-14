@@ -1,0 +1,19 @@
+{
+  "name": "lock-service",
+  "version": "1.0.0",
+  "description": "Lock service implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Leon",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "cors": "^2.8.5",
+    "http-status-codes": "^1.4.0",
+    "js-yaml": "^3.13.1",
+    "node-uuid": "^1.4.8",
+    "swagger-tools": "^0.10.4"
+  }
+}
